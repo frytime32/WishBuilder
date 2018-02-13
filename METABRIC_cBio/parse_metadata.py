@@ -105,7 +105,8 @@ for line in mutationsFile:
 		proteinDict[line[16]]={}
 	if not gene in proteinDict[line[16]]:
 		proteinDict[line[16]][gene] = []
-	proteinDict[line[16]][gene].append(line[39])
+	if line[39]: #only will add if not blank
+		proteinDict[line[16]][gene].append(line[39])
 	#End Protein_Variant code
 
 	if line[16] != sample and line[9] !=variant: #avoid duplicate variant_classification
